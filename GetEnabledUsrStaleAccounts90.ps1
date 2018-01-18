@@ -1,0 +1,2 @@
+﻿Import-Module ActiveDirectory
+Search-ADAccount -AccountInactive -TimeSpan 90 -UsersOnly | where {$_.enabled} | sort-object LastLogonDate | Select-Object Name,DistinguishedName,LastLogonDate | Export-Csv c:\temp\UsrAccnt90days.csv
